@@ -1,0 +1,15 @@
+{
+  "name": "govcon-talent-scout",
+  "version": "0.1.0",
+  "private": true,
+  "description": "GovCon Talent Scout beta — cleared-talent matching for government contractors.",
+  "scripts": {
+    "start": "npx --yes serve public -p 3000"
+  },
+  "dependencies": {
+    "stripe": "^17.7.0"
+  },
+  "engines": {
+    "node": "20.x"
+  }
+}

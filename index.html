@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GovCon Talent Scout — Cleared talent, matched</title>
+  <meta name="description" content="Beta matching console for government-contractor recruiting. Clearance, location, and skill fit for the National Capital Region." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,460;8..60,560&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <div class="mark"><span class="seal">GS</span> GovCon Talent Scout</div>
+      <div class="nav-links">
+        <a href="#console">Console</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#pilot">Pilot</a>
+        <a class="btn" href="#console">Run a search</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <div class="kicker">Ghostwork Labs · National Capital Region</div>
+        <h1>Cleared talent, matched before the req goes stale.</h1>
+        <p class="lede">A recruiting console for government contractors. Search by skill, clearance floor, and metro. Shortlist who can actually sit on the contract.</p>
+        <div class="meta">
+          <span>Beta pool: 24 synthetic profiles</span>
+          <span>DC · VA · MD</span>
+          <span>Not a clearance authority</span>
+        </div>
+      </div>
+      <form class="panel" id="console">
+        <h2>Search console</h2>
+        <p>Try “kubernetes TS/SCI” or “proposal manager DHS”.</p>
+        <label for="query">Role or skills</label>
+        <input id="query" name="query" value="cleared cloud architect kubernetes" required />
+        <div class="row">
+          <div>
+            <label for="location">Location</label>
+            <input id="location" name="location" value="DC metro" />
+          </div>
+          <div>
+            <label for="clearance">Clearance floor</label>
+            <select id="clearance" name="clearance">
+              <option value="">Any</option>
+              <option>Public Trust</option>
+              <option>Secret</option>
+              <option selected>TS</option>
+              <option>TS/SCI</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn full" type="submit">Match candidates</button>
+        <p class="note">Live API when deployed. In-browser matcher if the API is offline. Profiles are synthetic until you connect a sourcing key.</p>
+      </form>
+    </header>
+
+    <div id="banner" class="banner"></div>
+    <section class="results" id="results" aria-live="polite"></section>
+
+    <section class="section" id="pricing">
+      <div class="kicker">Pricing</div>
+      <h2>Simple seats. No 25% placement fee.</h2>
+      <div class="grid-3">
+        <article class="price">
+          <div class="kicker">Basic</div>
+          <strong>$99</strong>
+          <p>50 searches / month. Filters, profiles, email support.</p>
+          <button class="btn" data-tier="basic">Start Basic</button>
+        </article>
+        <article class="price">
+          <div class="kicker">Professional</div>
+          <strong>$199</strong>
+          <p>Unlimited searches, match reasons, shortlist export, priority support.</p>
+          <button class="btn" data-tier="pro">Start Professional</button>
+        </article>
+        <article class="price">
+          <div class="kicker">Enterprise</div>
+          <strong>$399</strong>
+          <p>ATS sync, webhook leads, dedicated onboarding. API when you are ready.</p>
+          <button class="btn" data-tier="enterprise">Talk to us</button>
+        </article>
+      </div>
+      <p id="pay-note" class="note"></p>
+    </section>
+
+    <section class="section">
+      <div class="kicker">How the beta works</div>
+      <div class="grid-3">
+        <article class="step"><h3>1. Search</h3><p>Skill tokens, clearance floor, and NCR location scored together. Not keyword-only.</p></article>
+        <article class="step"><h3>2. Shortlist</h3><p>Each card shows why it matched, availability, and a notional rate. Initials only.</p></article>
+        <article class="step"><h3>3. Connect</h3><p>Stripe checkout, Greenhouse Harvest, and a lead webhook turn on with env vars. No fake “live” claims.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="pilot">
+      <div class="kicker">Pilot</div>
+      <h2>Five contractor teams. Half-off for 60 days.</h2>
+      <form class="panel" id="lead">
+        <div class="row">
+          <div><label>Name</label><input name="name" required /></div>
+          <div><label>Work email</label><input name="email" type="email" required /></div>
+        </div>
+        <div class="row">
+          <div><label>Company</label><input name="company" /></div>
+          <div><label>Role you hire</label><input name="role" placeholder="Cleared software, capture, cyber" /></div>
+        </div>
+        <label>What is slow today?</label>
+        <textarea name="note" rows="3" placeholder="Clearance lag, DC bench, proposal surge..."></textarea>
+        <button class="btn full" type="submit">Request a pilot</button>
+        <p class="note" id="lead-note"></p>
+      </form>
+    </section>
+
+    <footer>
+      <div>GovCon Talent Scout · Ghostwork Labs · Annapolis</div>
+      <div>Beta. Synthetic pool. Not affiliated with DCSA or any agency.</div>
+    </footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
